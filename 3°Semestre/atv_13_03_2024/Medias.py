@@ -1,16 +1,16 @@
 cnt_linhas,acho,situacao,Lista_nome=0,False,None,[]
 
 print("Qual o nome do estudante ?")
-with open("arquivos_txt/Notas.txt", "r") as a:
+with open("Notas.txt", "r") as a:
     linhas = a.readlines()
     desejado=linhas[1].replace("Nomes dos alunos: ","").replace("\n","").replace(",","\n").replace(" ","")
     print(f"{desejado}\nTodos")
 nome_busca=input("Escreva exatamente o nome do estudante para descobrir suas notas ...\n").upper()
 if nome_busca == "TODOS":
     conver=desejado.split("\n")
-    with open("arquivos_txt/Aprovados.txt", "w") as a:
+    with open("Aprovados.txt", "w") as a:
          a.write("---------------------------------------------------------------------------------------------\nNomes dos alunos: \n---------------------------------------------------------------------------------------------")
-    with open("arquivos_txt/Exame.txt", "w") as a:
+    with open("Exame.txt", "w") as a:
          a.write("---------------------------------------------------------------------------------------------\nNomes dos alunos: \n---------------------------------------------------------------------------------------------")
     for nome in conver:
         for linha in linhas:
@@ -23,7 +23,7 @@ if nome_busca == "TODOS":
 
                 if media>=7:
                     situacao="Aprovado"
-                    with open("arquivos_txt/Aprovados.txt", "r") as a:
+                    with open("Aprovados.txt", "r") as a:
                         linhas_e = a.readlines()
                         desejado=linhas_e[1].replace("Nomes dos alunos: ","").replace("\n","")
                     if desejado!="":
@@ -32,13 +32,13 @@ if nome_busca == "TODOS":
                     conjunto = ','.join(map(str, Lista_nome))
                     linhas_e[1] = f"Nomes dos alunos: {conjunto}\n" 
                     Lista_nome=[]
-                    with open("arquivos_txt/Aprovados.txt", "w") as a:
+                    with open("Aprovados.txt", "w") as a:
                         a.writelines(linhas_e)
-                    with open("arquivos_txt/Aprovados.txt", "a") as a:
+                    with open("Aprovados.txt", "a") as a:
                         a.write(f"\n---------------------------------------------------------------------------------------------\n{nome}\n{linhas[cnt_linhas]}{linhas[cnt_linhas+1]}{linhas[cnt_linhas+2]}Media passa :{media:.2f}")
                 else:
                     situacao="Exame"
-                    with open("arquivos_txt/Exame.txt", "r") as a:
+                    with open("Exame.txt", "r") as a:
                         linhas_e = a.readlines()
                         desejado=linhas_e[1].replace("Nomes dos alunos: ","").replace("\n","")
                     if desejado!="":
@@ -47,9 +47,9 @@ if nome_busca == "TODOS":
                     conjunto = ','.join(map(str, Lista_nome))
                     linhas_e[1] = f"Nomes dos alunos: {conjunto}\n" 
                     Lista_nome=[]
-                    with open("arquivos_txt/Exame.txt", "w") as a:
+                    with open("Exame.txt", "w") as a:
                         a.writelines(linhas_e)
-                    with open("arquivos_txt/Exame.txt", "a") as a:
+                    with open("Exame.txt", "a") as a:
                         a.write(f"\n---------------------------------------------------------------------------------------------\n{nome}\n{linhas[cnt_linhas]}{linhas[cnt_linhas+1]}{linhas[cnt_linhas+2]}Media :{media:.2f}")
                 print(f"\nAchei...\n{nome}\n{linhas[cnt_linhas]}{linhas[cnt_linhas+1]}{linhas[cnt_linhas+2]}Media :{media:.2f}\nSituação :{situacao}")
                 acho,cnt_linhas=True,0

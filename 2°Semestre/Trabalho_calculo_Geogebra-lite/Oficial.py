@@ -208,6 +208,7 @@ class trabalho():
             'raiz': np.sqrt,
             'π': np.pi, 
             'pi': np.pi,
+            'ln': np.log,
         }
         return eval(self.expr_str, todas_fun)
 
@@ -342,7 +343,8 @@ class trabalho():
     'e': cmath.exp(1),
     'raiz': cmath.sqrt,
     'π': cmath.pi, 
-    'pi': cmath.pi,}
+    'pi': cmath.pi,
+    'ln': cmath.log,}
         return  eval(self.expr_str,todas_fun)
     def encontrar_raiz(self, a, b):
         cnt = 0

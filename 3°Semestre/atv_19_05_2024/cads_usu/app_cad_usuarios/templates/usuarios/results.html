@@ -1,0 +1,16 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos</title>
+</head>
+<body>
+    <h1>Gráficos</h1>
+    {% load static %}
+{% for nun in n %}
+    <img src="{% static nun %}" alt="Gráfico">
+{% endfor %}
+
+</body>
+{% endblock %}

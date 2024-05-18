@@ -1,0 +1,112 @@
+
+body {
+    background: #000; 
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+h1 {color:linear-gradient(to bottom, #002c6b, #0a1172);
+    animation: blink 2s linear infinite;
+    text-align: center;
+    
+}
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black; 
+}
+.frame {
+    width: 400px;
+    height: 300px;
+    border: 2px solid #2855c5b8;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #0578e4; 
+}
+.center-text {
+    text-align: center;
+}
+
+.staio_button {
+    text-align: center;
+    display: inline-block; 
+    margin-right: 10px; 
+    padding: 10px 20px; 
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #002c6b, #0a1172);
+    color: #fff;
+    cursor: pointer;
+}
+
+.stars {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #FFF; 
+    animation: twinkle 2s infinite;
+}
+@keyframes twinkle {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input, button {
+    margin-bottom: 20px;
+}

@@ -1,0 +1,26 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+<title>Votação</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vote</title>
+</head>
+<body>
+    <h1 style="position: fixed;bottom: 0;left: 0;margin: 10px;">Usuarios: {{ nome }}</h1>
+      <div class="container">
+        {% for pergunta in perguntas %}
+        <legend><h3 class="text-center">{{ pergunta }}</h3></legend>
+        {% endfor %}
+        {% for question in alternativas %}
+        <ul class="text-center">
+        <li>
+            <a href="{% url 'app_cad_usuarios:results' question_id=question.id %}" style="font-size: 120%;background-color: azure;color: black;display: block;padding: 10px;margin-bottom: 10px;border: 1px solid #ced4da;border-radius: 4px;text-decoration: none;">{{ question }}</a> 
+        </li>
+        </ul>
+    {% endfor %}
+    </div>
+    
+    
+    
+{% endblock %}

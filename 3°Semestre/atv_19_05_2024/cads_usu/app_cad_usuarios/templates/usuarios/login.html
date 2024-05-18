@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tela login</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/stley_2.css' %}">
+</head>
+<body>
+    
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+    <h1><strong style="font-size: 50%; padding: 2%;"> {{ message }} </strong></h1>
+      {% if validacao > 0 %}
+        <form action="{% url 'exibir' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="form-control-sm">Ir para a lista de cadastrados ?</button>
+        </form>
+        {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}
+    <div class="stars">
+        <div class="center-container">
+            <div class="frame">
+                <div class="center-text">
+                    <h1>Tela login</h1>
+                    <form action="{% url 'acesso' %}" method="post">
+                      {% csrf_token %}
+                    <label for="username">E-mail Cadastrado:</label>
+                    <input type="text" id="username" name="email" required>
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="senha" required>
+                    <button class="staio_button" type="submit_" value="Entrar">Entrar</button>
+                </form>
+                    <form action="{% url 'cadas' %}" method="post">
+                      {% csrf_token %}
+                        <button class="staio_button" >Cadastrar</button>
+                        </form>
+                            </div>
+                        </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,12 +1,14 @@
-#40x – 2^(x^2) – 7 (certo)
-#sen(x) – 3^x(Certo)
-#x^3 – x – 1(Certo)
-#2^x + x(Certo)
-#8x + log(x)(Errada)
+#40*x – 2**(x**2) – 7 (certo)
+#sen(x) – 3**x(Certo)
+#x**3 – x – 1(Certo)
+#2**x + x(Certo)
+#8*x + log(x)(Certo)
 from fractions import Fraction
 from sympy import *
 from cmath import *
 import cmath
+import numpy as np
+
 class Sla():
     def __init__(self):
         while True:
@@ -47,9 +49,29 @@ class Sla():
                 break
             
     def funcao(self, x): 
-        if x ==0:
-            x=-0.00000000001
-        return 8*x + log(x)
+        if np.all(x == 0):
+            x = -0.00000000001
+        todas_fun = {'x': x, 
+    'sin': cmath.sin,
+    'sen': cmath.sin,
+    'cos': cmath.cos,
+    'tan': cmath.tan,
+    'asin': cmath.asin,
+    'acos': cmath.acos,
+    'atan': cmath.atan,
+    'sinh': cmath.sinh,
+    'cosh': cmath.cosh,
+    'tanh': cmath.tanh,
+    'asinh': cmath.asinh,
+    'acosh': cmath.acosh,
+    'atanh': cmath.atanh,
+    'log': cmath.log10,
+    'e': cmath.exp(1),
+    'raiz': cmath.sqrt,
+    'π': cmath.pi, 
+    'pi': cmath.pi,
+    'ln': cmath.log,}
+        return  eval(self.func,todas_fun)
     def encontrar_raiz(self, a, b):
         cnt = 0
         c = 0

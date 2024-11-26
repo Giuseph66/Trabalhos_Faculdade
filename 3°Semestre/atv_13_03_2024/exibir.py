@@ -1,5 +1,7 @@
+import os
+
 cnt_linhas,acho,Lista_nome=0,False,[]
-with open("Aprovados.txt", "r") as f:
+with open((os.path.join(os.path.dirname(__file__), "Aprovados.txt")), "r") as f:
     linhas = f.readlines()
     desejado=linhas[1].replace("Nomes dos alunos: ","").replace("\n","").replace(",","\n").replace(" ","")
     conver=desejado.split("\n")
@@ -12,7 +14,7 @@ with open("Aprovados.txt", "r") as f:
                 print(f"{nome} passou com a nota {Nota}")
                 acho,cnt_linhas=True,0
                 break
-with open("Reprovados.txt", "r") as f:
+with open((os.path.join(os.path.dirname(__file__), "Reprovados.txt")), "r") as f:
     linhas = f.readlines()
     desejado=linhas[1].replace("Nomes dos alunos: ","").replace("\n","").replace(",","\n").replace(" ","")
     conver=desejado.split("\n")

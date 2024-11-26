@@ -3,6 +3,7 @@ from tkinter import ttk
 from tkinter import *
 import matplotlib.pyplot as plt
 from fractions import Fraction
+import os
 import numpy as np
 from cmath import *
 import cmath
@@ -12,7 +13,8 @@ class trabalho():
         self.dunf=tk.Tk()
         self.dunf.geometry("800x500+200+100")
         self.dunf.title("Geogebra-lite")
-        self.dunf.iconbitmap("icone.ico")
+        try:self.dunf.iconbitmap(os.path.join(os.path.dirname(__file__), "icone.ico"))
+        except:pass
         self.dunf.resizable(0,0)
         self.ini()
         self.dunf.mainloop()

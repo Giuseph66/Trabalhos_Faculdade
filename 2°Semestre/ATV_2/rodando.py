@@ -2,13 +2,15 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import ttk
 from tkinter import *
+import os
 
 class trabalho():
     def __init__(self):
         self.dunf=tk.Tk()
         self.dunf.geometry("1000x500+200+100")
         self.dunf.title("Pesquisa no predio")
-        self.dunf.iconbitmap("ATV_2/predio.ico")
+        try:self.dunf.iconbitmap(os.path.join(os.path.dirname(__file__), "predio.ico"))
+        except:pass
         self.dunf.resizable(0,0)
         self.qnt_pessoas=0
         self.coleta=[]

@@ -1,13 +1,15 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
+import os
 
 class Prova():
     def __init__(self) :
         self.tela=tk.Tk()
         self.tela.geometry("800x500+500+50")
         self.tela.title("Prova...")
-        self.tela.iconbitmap("Prova/prova.ico")
+        try:self.tela.iconbitmap(os.path.join(os.path.dirname(__file__), "prova.ico"))
+        except:pass
         self.tela.resizable(0,0)
         self.total=0
         self.qnt_gente=0

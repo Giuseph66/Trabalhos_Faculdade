@@ -1,13 +1,15 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
+import os
 
 class cinema():
     def __init__(self) :
         self.tela=tk.Tk()
         self.tela.geometry("800x500+500+50")
         self.tela.title("Pesquisa...")
-        self.tela.iconbitmap("atv_1-fastech/lupa.ico")
+        try:self.tela.iconbitmap(os.path.join(os.path.dirname(__file__), "lupa.ico"))
+        except:pass
         self.tela.resizable(0,0)
         self.guarda=[]
         self.gra_nomes,self.gra_valores=[],[]

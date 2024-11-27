@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Vendas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            background: #f4f4f4;
+            flex-wrap: wrap;
+        }
+
+        .phone {
+            position: relative;
+            width: 300px;
+            height: 700px;
+            background: linear-gradient(135deg, #e3e3e3, #d6d6d6);
+            border-radius: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.8);
+            border: black;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        header {
+            background: #007BFF;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .screen {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #007BFF;
+            color: white;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .btn {
+            display: block;
+            padding: 15px;
+            background: #007BFF;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .phone .screen img {
+            max-width: 80px;
+            border-radius: 50%;
+        }
+
+        b {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9em;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="phone">
+        <header>Login</header>
+        <div class="screen">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPEBAQDw8NEA4OEBANDRAQDw8QDhAQFxEWFhURFRYdHCggGBoxGxYXITEiJSkrOjouFx8zRDMtNygtMSsBCgoKDg0OGhAQGislHx0rLS0rKy0uLS0rKy0tKy0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0rLS0tLS0rNysrLf/AABEIAMgAyAMBEQACEQEDEQH/xAAcAAEAAgIDAQAAAAAAAAAAAAAABAYBBQMHCAL/xABIEAACAgADAA0FDAgHAQAAAAAAAQIDBAURBgcSEyEzQVFhcXKSwRUXMYHSFCIyQlJUVZShstHTFiNzgpGxtOE1REVTYqLDCP/EABoBAQADAQEBAAAAAAAAAAAAAAABBAUGAwL/xAAqEQEAAQMCBAYCAwEAAAAAAAAAAQIDBAURITEzURIUFTI0QRNhIiNSQv/aAAwDAQACEQMRAD8A7xAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGCOYEgOAEcAJ3gBvAERsBIyAAAAAAAAAAAAAAAAAAAGAIeLzCqqUYTlpOerjHhbaXpZVv5Vqx7pfdFuauT48r1c8u6yp6xj93r5W52PK1XPLusesY/c8rc7Hlarnl3WPWMfueVudjyvVzy7rHrGP3PK3OyRhsTGxax1052mteovWcim9G9Lxromlznu+WQAAAAAAAAADA3GQAAAAAAYIGi2R7IYYVOENJ3te9jyQ1+NL8CjlZkWuEc3tatTVxUzK8TO3EudknKcoybb6lwJciOYzLk18ZaNqnw8FhM1YAAjfcbDLctc9JT1UORcsv7G7p2lzcnx3OSjfyfqlvoxSWiSSXAjqKKIp4Qzpl9H2AAAAAAAMACOA47rowTlJ6JHlev02qfFVKaaZq4Q00cdK26HJBS4I+p8LOft6hXk5VNMcl+qxFFqZ+2+R0sM8JAAAAwQK9skz2dKdVEJyta4ZqDca/xZl52fFqPDHNYtWJr4qHZh7pNylC2UpPdSbjNtvn6WYNV6K533Xop24J2RYWzfl+rs+DL4kug864m7G1PN9RPg4ysnuaz/AG591/geHkr3+X1+ejue57PkT7rHkr3+T81HdsctyzX39i6oP+bNrTtK/wC7infyd+FKbm2aUYOmd+JsjVRXud3NptR1kor0cPpaR0cRERtCir1e2Zk0moxzClyk1GK3N3C29Evgki3gANfmudYXCR3WKxNFEX6HbZCGvUm9X6gNBLbOyVf6jR6o2tfdAx50Mk+kae5d7IDzoZJ9I09y72QHnQyT6Rp7l3sgWjBYqF9dd1UlOq6EbaprXSUJLWMl6nqRyDFYmNa1k+pcr6Cvk5VFinep927c1zwV7F4qVr1foXwY8i/ucdl51eRVx5NW1ZiiP2Zdxtfa8CdO+TSZPTlaUdxDHCQAAAMECsZjxs+vwRxGpz/fU2Mbpwjme9k3JuOXZka+j8b8KuX7FjOw2hlg2gCRR9uv/A8d1Yf+prA8wZTx9H7ar76A9rICv7PdkPkzL8Ri0lKdcVGmL9DtnJRjr0avX1MDyXmuaX4y2V2Jtsuum/fTm231LmXQgJNexrMJJSjgMdKL4U44W9prnT3IGf0VzH6PzD6rf7ID9Fcx+j8w+q3+yA/RbMfo/MPqt/sgesNhVUoZbl8JxlGcMFhYTjJOM4yVMU4tcj1A4M6f63l4IrT7TkdZqn82zTw/YgmKuJGX8bX2vAv6b8ml4ZPTlaEdxDHCQAAAMEfQrGY8bZ1+COH1P5FTYxunCOUHum5Nxy7MvA19G68KmX7FjOxZYAAo+3X/AIHjurD/ANTWB5fyrj6P21X30B7XQFI25cqsxWT4mNUXKdTrxG5XpcYS1nouX3ur9QHlvCXyqshZDRTrnGyDaTSlFqSenLwoDtLB7fOYxWluGwNunKlbXJ/9mvsA2dH/ANA2LjMtrfYxMo/zgwNphtv7CvjcBiYc+4trs/nuQLbsb20cqx841V3ypum9IV4iO9OT5EpauLfRqBdQK9nXGvsx8Tj9aj+9qYfsQTHW0jL+Nr7XgX9N+TS8MnpytCO4hjhIAAAGCPoVnMeNn1+COH1P5FTYxunCMUHum5Nxy7MjX0brwqZfsWM7FlsagNQKHt34iMMkxak0nbLD11r5Ut/hLRfuxb9QHmbJoOWJw8VwuV9UV1uxAe1UBkDrXZRtM5djLJW0uzB2zblJUqMqG3y72/R6mgKZiNoDELi8ww8lybumyD+xsDXYjaHzOPwL8BPo3y6L+2sDWYraazqtNxopt04dK8RVq+rdNAUPFYedU512QlCyuThZCSalGSeji1yMD07tJ5/bjsrjv0pTtwts8K5ybcpxUYyg5Ple5ml+6Bvs6419mPicfrXXamJ7EEx/pbSMu42Ha8C/pvyKXhkdOVoR3EMcJAAAAwR9CsZjxtna8EcPqfyKmxjdOEcoPdNybjl2ZeBr6N14VMv2KNt87Jsbl7wHuPE2Ub6sTvu43PvtzvW511XS/wCJ2LLdTeczOvpHEfwr9kB5zM6+kcR/Cv2QNLnWyHGY5qWLxN97j8BWTcox15o+heoC4bS2xK3HZhViZQawmCnG+yxr3srY8Nda53utG+hdKA2ey/bVzfDY/GYerEVxqoxV1VSeHok1CNjSWrjq+BAW3M9m+YQ2NYXMo3RWNtv3uyzeqty477bHRR00XBBcnIB1z54s8+dw+rYb2AHnizz53D6thvYAeeLPPncPq2G9gD5ltwZ4/wDORXVhsNr9wCmY3F2X2zttm7LbZuyycuFyk3q2wPTm0rsfswGVxV0XC3E2yxUoSTUoRcYxhGS5HuYJ/vAbzOuNfZj4nH6112piexBMf6W0jL+Nr7XgX9N+RS8MjpytCO4hjhIAAAGCBWcy42fX4I4fU/k1NjH6cIxQ/T2Tcm41dUvA19H4X4Vcv2ImzvYDhs53j3TbiK/c2+bjeXWtd3udd1uov5COxZaq+YTLfnOY9+j8sB5hct+c5h36PywNllu0vk9LTlXiL2uH9dc9y+tQUdQL7gsFVRXGqiuuqqtaQhXFQhFcySA68znaXwGLxF+JsxGOjZibbL5qEqdypTk5NLWv0cIG4xO1zhbMrqyl24lYeizfY2KVe/N7uc9G9zp8d8nMBW/MJlvznMe/R+WA8wmW/Ocx79H5YDzCZb85zHv0flgI7Q2Wa8OJzFrm3dC/8wLJsd2ssqwE1bVh98ug04WXydri18aMX71Pp0I8VPcmN1zHig24K9nPGvsx8TkdZ43t4amJt4EEx4iVpIy/ja+14MvabFXmqd3hkbRblaEdzDIAAAABggVjMeNs7Xgjh9T+TU2Mfpw4a63JqMU236Px6irZsV3aopoeldcUxvLf5dgFVwvhm/S+boR2GBgU48bzzZV6/NxPNN4AAAAAAAAADDImYiOI0uY5n6Y1vocvBHOahqu38Lcr1jG+6mt3+fy595mL5u7yipc/DR2N/n8ufeY83d29x+Cjsrme4mxXP9ZZ8GPx5dJ7UVTcjepG0UcIQK77pNRjO1yk9IpSk236NOk9IsxXwh8TVw3XzY1kU6Urb5yla172Dk3GteLOgwsCLceKrmo3b01cFjNRXAAAABggV3FUSsvnGK4deHmXAjkcnFrv5VVNMNO3dii1G7cYLBxqXBwyfpk/SzocPCox44KF27NcpRdebJIAAAAAAAAfEpJLVvRLhZ8VXIpjeUxHZosyzFz1jDVQ5Xyy/scvqOqTcnwW+TQx8eI/lU12hhTK6yEsCYkaDNcNO3EquuLlOUYqKXr4ehGliW5ucKVe7VEc1y2ObHYYVbuek72uGXJD/jH8Tp8XDi3HHmzbl2am9L7yZAAAAADBG28D4hWk20knJ6vpPmm3TE7xCZqmdofZ9cEBIyAAAAAAAAA4MRho2LSWunMm1qeF6zF2PDU+qappneEbyRVzS7zKPpGP2e/m7nc8kVc0u8x6Rjdkeaud2fJFXNLvMekY3Y81c7seSauaXeZHo+PH0eaud3JhcvqqlKcI6TklGUnq3ouTqLtjEt2fbDzruVVc0ssPMJglkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf//Z" alt="Logo da Empresa" style="border-radius: 50%;">
+                <h2 style="margin-top: 10px;">J.S Silva LTDA</h2>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" placeholder="Digite seu usuário" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <p style="text-align: center; font-size: 0.9em; margin-top: 10px;">
+                Esqueceu sua senha? <a href="#Esqueci minha senha "
+                    style="color: #007BFF; text-decoration: none;">Clique aqui</a>
+            </p>
+            <p style="text-align: center; font-size: 0.9em; margin-top: 5px; color: #888;">
+                © 2024 J.S Silva LTDA - Todos os direitos reservados.
+            </p>
+            <b>Tela exemplo (Não funcional)</b>
+        </div>
+    </div>
+
+
+    <div class="phone">
+        <header>Painel Principal</header>
+        <div class="screen">
+            <a href="#clientes" class="btn">Clientes</a>
+            <a href="#produtos" class="btn">Produtos</a>
+            <a href="#nova-venda" class="btn">Nova Venda</a>
+            <b>Tela exemplo (Não funcional)</b>
+        </div>
+    </div>
+
+    <div class="phone">
+        <header>Cadastro de Clientes</header>
+        <div class="screen">
+            <form>
+                <div class="form-group">
+                    <label for="nome-cliente">Nome do Cliente</label>
+                    <input type="text" id="nome-cliente" placeholder="Nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpf-cnpj">CPF/CNPJ</label>
+                    <input type="text" id="cpf-cnpj" placeholder="CPF ou CNPJ" required>
+                </div>
+                <button type="button">Salvar Cliente</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="phone">
+        <header>Cadastro de Produtos</header>
+        <div class="screen">
+            <form>
+                <div class="form-group">
+                    <label for="nome-produto">Nome do Produto</label>
+                    <input type="text" id="nome-produto" placeholder="Nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="valor-produto">Valor do Produto</label>
+                    <input type="number" id="valor-produto" placeholder="Valor do Produto" required>
+                </div>
+                <button type="button">Salvar Produto</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="phone">
+        <header>Nova Venda</header>
+        <div class="screen">
+            <form>
+                <div class="form-group">
+                    <label for="cliente">Cliente</label>
+                    <select id="cliente"></select>
+                </div>
+                <div class="form-group">
+                    <label for="produto">Produto</label>
+                    <select id="produto"></select>
+                </div>
+                <div class="form-group">
+                    <label for="valor-produto-selecionado">Valor do Produto</label>
+                    <input type="text" id="valor-produto-selecionado" placeholder="R$ 0,00" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade" placeholder="Digite a quantidade" required>
+                </div>
+                <button type="button">Finalizar Venda</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const clientes = [];
+        const produtos = [];
+
+        // Cadastro de Clientes
+        document.querySelector('div.phone:nth-child(3) button').addEventListener('click', () => {
+            const nomeCliente = document.getElementById('nome-cliente').value;
+            const cpfCnpj = document.getElementById('cpf-cnpj').value;
+
+            if (nomeCliente && cpfCnpj) {
+                clientes.push({ nome: nomeCliente, cpfCnpj });
+                alert('Cliente salvo com sucesso!');
+                document.getElementById('nome-cliente').value = '';
+                document.getElementById('cpf-cnpj').value = '';
+                atualizarClientes();
+            } else {
+                alert('Preencha todos os campos!');
+            }
+        });
+
+        // Cadastro de Produtos
+        document.querySelector('div.phone:nth-child(4) button').addEventListener('click', () => {
+            const nomeProduto = document.getElementById('nome-produto').value;
+            const valorProduto = document.getElementById('valor-produto').value;
+
+            if (nomeProduto && valorProduto) {
+                produtos.push({ nome: nomeProduto, valor: parseFloat(valorProduto) });
+                alert('Produto salvo com sucesso!');
+                document.getElementById('nome-produto').value = '';
+                document.getElementById('valor-produto').value = '';
+                atualizarProdutos();
+            } else {
+                alert('Preencha todos os campos!');
+            }
+        });
+
+        // Finalizar Venda
+        document.querySelector('div.phone:nth-child(5) button').addEventListener('click', () => {
+            const clienteSelecionado = document.getElementById('cliente').value;
+            const produtoSelecionado = document.getElementById('produto').value;
+            const quantidade = document.getElementById('quantidade').value;
+
+            if (clienteSelecionado && produtoSelecionado && quantidade) {
+                const produto = produtos.find(p => p.nome === produtoSelecionado);
+                const total = produto.valor * parseInt(quantidade);
+                alert(`Venda finalizada com sucesso! \nCliente: ${clienteSelecionado}\nProduto: ${produtoSelecionado}\nQuantidade: ${quantidade}\nTotal: R$ ${total.toFixed(2)}`);
+            } else {
+                alert('Preencha todos os campos!');
+            }
+        });
+
+        // Atualizar o valor do produto selecionado
+        document.getElementById('produto').addEventListener('change', () => {
+            const produtoSelecionado = document.getElementById('produto').value;
+            const produto = produtos.find(p => p.nome === produtoSelecionado);
+            document.getElementById('valor-produto-selecionado').value = produto ? `R$ ${produto.valor.toFixed(2)}` : 'R$ 0,00';
+        });
+
+        // Atualizar a lista de clientes
+        function atualizarClientes() {
+            const clienteSelect = document.getElementById('cliente');
+            clienteSelect.innerHTML = '';
+            clientes.forEach(cliente => {
+                const option = document.createElement('option');
+                option.value = cliente.nome;
+                option.textContent = cliente.nome;
+                clienteSelect.appendChild(option);
+            });
+        }
+
+        // Atualizar a lista de produtos
+        function atualizarProdutos() {
+            const produtoSelect = document.getElementById('produto');
+            produtoSelect.innerHTML = '';
+            produtos.forEach(produto => {
+                const option = document.createElement('option');
+                option.value = produto.nome;
+                option.textContent = produto.nome;
+                produtoSelect.appendChild(option);
+            });
+        }
+
+        // Inicializar as listas
+        atualizarClientes();
+        atualizarProdutos();
+    </script>
+</body>
+
+</html>
